@@ -24,20 +24,20 @@ float GetCost(Arrow arrow)
      float arrowCost;
      float fletching;
      float shaftPrice;
-    arrowCost = arrow.arrowHead switch
+     arrowCost = arrow.arrowHead switch
     {
-        (arrow.arrowHead == ArrowheadType.Steel) => 10.0f,
-        (arrow.arrowHead == ArrowheadType.Wood) => 3.0f,
-        (arrow.arrowHead == ArrowheadType.Obsidian) => 5.0f
+        (ArrowheadType.Steel) => 10.0f,
+        (ArrowheadType.Wood) => 3.0f,
+        (ArrowheadType.Obsidian) => 5.0f
     };
 
     cost += arrowCost;
 
     fletching = arrow.fletching switch
     {
-        (arrow.fletching == Fletching.Plastic) => 10.0f,
-        (arrow.fletching == Fletching.Turkey) => 5.0f,
-        (arrow.fletching == Fletching.Goose) => 3.0f,
+        (Fletching.Plastic) => 10.0f,
+        (Fletching.Turkey) => 5.0f,
+        (Fletching.Goose) => 3.0f,
     };
 
     cost += fletching;
