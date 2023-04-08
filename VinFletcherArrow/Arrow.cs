@@ -16,9 +16,9 @@
     
     class Arrow
     {
-        ArrowheadType arrowHead;
-        Fletching fletching;
-        float shaft;
+        public ArrowheadType arrowHead;
+        public Fletching fletching;
+        public float shaft;
 
         public Arrow(int arrowHead, int fletching, int shaft)
         {

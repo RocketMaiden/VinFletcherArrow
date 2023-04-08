@@ -16,7 +16,28 @@ Arrow arrow = new Arrow(arrowhead, fletching, shaft);
 
 float GetCost(Arrow arrow)
 {
-     return float cost = 0;
+     float cost = 0;
+     float arrowCost;
+     float fletching;
+    arrowCost = arrow.arrowHead switch
+    {
+        (arrow.arrowHead == ArrowheadType.Steel) => 10.0f,
+        (arrow.arrowHead == ArrowheadType.Wood) => 3.0f,
+        (arrow.arrowHead == ArrowheadType.Obsidian) => 5.0f
+    };
+
+    cost += arrowCost;
+
+    fletching = arrow switch
+    {
+        (arrow.fletching == Fletching.Plastic) => 10.0f,
+        (arrow.fletching == Fletching.Turkey) => 5.0f,
+        (arrow.fletching == Fletching.Goose) => 3.0f,
+    };
+
+    cost += fletching;
+
+
 }
 
 
