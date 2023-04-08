@@ -14,11 +14,16 @@ int.TryParse(Console.ReadLine(), out  shaft);
 
 Arrow arrow = new Arrow(arrowhead, fletching, shaft);
 
+Console.WriteLine(GetCost(arrow));
+Console.ReadLine();
+
+
 float GetCost(Arrow arrow)
 {
      float cost = 0;
      float arrowCost;
      float fletching;
+     float shaftPrice;
     arrowCost = arrow.arrowHead switch
     {
         (arrow.arrowHead == ArrowheadType.Steel) => 10.0f,
@@ -37,7 +42,11 @@ float GetCost(Arrow arrow)
 
     cost += fletching;
 
+    shaftPrice = arrow.shaft * 0.05f;
 
+    cost += shaftPrice;
+
+    return cost;
 }
 
 
