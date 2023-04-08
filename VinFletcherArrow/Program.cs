@@ -33,7 +33,7 @@ float GetCost(Arrow arrow)
 
     cost += arrowCost;
 
-    fletching = arrow switch
+    fletching = arrow.fletching switch
     {
         (arrow.fletching == Fletching.Plastic) => 10.0f,
         (arrow.fletching == Fletching.Turkey) => 5.0f,
