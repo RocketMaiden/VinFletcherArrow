@@ -1,5 +1,4 @@
-﻿using System.Runtime.CompilerServices;
-using VinFletcherArrow;
+﻿using VinFletcherArrow;
 
 Console.WriteLine("Let's create the arrow");
 Console.WriteLine("Chose your arrowhead type - press 1 for steel, 2 for wood, 3 for obsidian");
