@@ -16,6 +16,10 @@
             }
         }
 
+        public Vendor()
+        {
+            CreateArrows();
+        }
 
         public float GetCost(Arrow arrow)
         {
