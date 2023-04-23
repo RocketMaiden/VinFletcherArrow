@@ -1,20 +1,20 @@
 ﻿namespace VinFletcherArrow
 {
-    enum ArrowheadType
+    public enum ArrowheadType
     {
         Steel,
         Wood,
         Obsidian
     }
 
-    enum Fletching
+    public enum Fletching
     {
         Plastic,
         Turkey,
         Goose
     }
     
-    class Arrow
+    public class Arrow
     {
         public ArrowheadType arrowHead;
         public Fletching fletching;
