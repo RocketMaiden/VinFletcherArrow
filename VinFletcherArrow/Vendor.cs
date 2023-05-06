@@ -1,4 +1,6 @@
-﻿namespace VinFletcherArrow
+﻿using System.Reflection.Metadata.Ecma335;
+
+namespace VinFletcherArrow
 {
     class Vendor
     {
@@ -59,11 +61,40 @@
             return cost;
         }
 
-        public Arrow GetArrow(ArrowheadType arrowheadType, Fletching fletching)
+        public bool HasArrow(Arrow arrow)
+        {
+            for (int i = 0; i < arrows.Length; i++)
+            {
+                if (arrows[i] == arrow)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        public bool TryGetArrow(Arrow arrow)
+        {
+            if (HasArrow(arrow))
+            {
+                for (int i = 0; i <= arrows.Length; i++)
+                {
+                    if (arrows[i] == arrow)
+                    {
+                        Console.WriteLine($"Here is your arrow: {arrows[i]}. It will cost you {GetCost(arrows[i])}");
+                    }
+                }
+            }
+
+            return false;
+        }
+
+
+        /*public Arrow GetArrow(ArrowheadType arrowheadType, Fletching fletching)
         {
             List<Arrow> arrowsWithHeads = arrowList.FindAll(head => head.arrowHead == arrowheadType);
             Arrow perfectArrow = arrowsWithHeads.Find(fl => fl.fletching == fletching);
             return perfectArrow;
-        }
+        }*/
     }
 }
