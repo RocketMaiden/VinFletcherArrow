@@ -2,23 +2,25 @@
 {
     class Vendor
     {
-        private List<Arrow> arrowList = new List<Arrow>();
+        //private List<Arrow> arrowList = new List<Arrow>();
 
-        private void CreateArrows()
+        /*private void CreateArrows()
         {
             foreach (ArrowheadType arrowheadType in Enum.GetValues(typeof(ArrowheadType)))
             {
                 foreach (Fletching fletching in Enum.GetValues(typeof(Fletching)))
                 {
-                    Arrow arrow = new Arrow(arrowheadType, fletching);
+                    Arrow arrow = new Arrow(arrowheadType, fletching, 10);
                     arrowList.Add(arrow);
                 }
             }
-        }
+        }*/
 
-        public Vendor()
+        Arrow[] arrows; 
+        
+        public Vendor(Arrow[] arrows)
         {
-            CreateArrows();
+            this.arrows = arrows;
         }
 
         public float GetCost(Arrow arrow)
@@ -26,7 +28,7 @@
             float cost = 0;
             float arrowCost;
             float fletching;
-            //float shaftPrice;
+            float shaftPrice;
             arrowCost = arrow.arrowHead switch
             {
                 (ArrowheadType.Steel) => 10.0f,
@@ -45,9 +47,14 @@
 
             cost += fletching;
 
-            //shaftPrice = arrow.shaft * 0.05f;
+            shaftPrice = arrow.length switch
+            {
+                5 => 2.5f,
+                10 => 5.0f,
+                15 => 7.5f,
+            };
 
-            //cost += shaftPrice;
+            cost += shaftPrice;
 
             return cost;
         }

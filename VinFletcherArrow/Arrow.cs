@@ -18,19 +18,20 @@
     {
         public ArrowheadType arrowHead;
         public Fletching fletching;
-        //public float shaft;
+        public int length;
 
-        public Arrow(int arrowHead, int fletching)
+        public Arrow(int arrowHead, int fletching, int length)
         {
             this.arrowHead = (ArrowheadType)arrowHead;
             this.fletching = (Fletching)fletching;
-            //this.shaft = shaft;
+            this.length = length;
         }
 
-        public Arrow (ArrowheadType arrowHead, Fletching fletching)
+        public Arrow (ArrowheadType arrowHead, Fletching fletching, int length)
         {
             this.arrowHead = arrowHead;
             this.fletching = fletching;
+            this.length = length;
         }
     }
 }
