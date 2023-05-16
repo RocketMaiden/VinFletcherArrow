@@ -48,7 +48,7 @@
 
         public Arrow? GetArrow(ArrowheadType arrowheadType, Fletching fletching, int length)
         {
-            for (int i = 0; i <= arrows.Length; i++)
+            for (int i = 0; i < arrows.Length; i++)
             {
                 if (arrows[i].arrowHead == arrowheadType && arrows[i].fletching == fletching && arrows[i].length == length)
                 {
