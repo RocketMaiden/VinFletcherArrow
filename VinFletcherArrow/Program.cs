@@ -13,6 +13,8 @@ fletching--;
 Console.WriteLine("Enter your shaft in cm");
 int.TryParse(Console.ReadLine(), out length);
 
+//TODO validation of user input
+
 Arrow desiredArrow = new Arrow(arrowhead, fletching, length);
 
 Arrow[] vendor1_arrows = new Arrow[] { 

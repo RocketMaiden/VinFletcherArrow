@@ -50,6 +50,7 @@
         {
             for (int i = 0; i < arrows.Length; i++)
             {
+                //TODO move to Equals method
                 if (arrows[i].arrowHead == arrowheadType && arrows[i].fletching == fletching && arrows[i].length == length)
                 {
                     return arrows[i];
@@ -57,5 +58,8 @@
             }
             return null;
         }
+
+
+        //TODO write tests for Equals
     }
 }
