@@ -1,23 +1,7 @@
-﻿using System.Reflection.Metadata.Ecma335;
-
-namespace VinFletcherArrow
+﻿namespace VinFletcherArrow
 {
     class Vendor
     {
-        //private List<Arrow> arrowList = new List<Arrow>();
-
-        /*private void CreateArrows()
-        {
-            foreach (ArrowheadType arrowheadType in Enum.GetValues(typeof(ArrowheadType)))
-            {
-                foreach (Fletching fletching in Enum.GetValues(typeof(Fletching)))
-                {
-                    Arrow arrow = new Arrow(arrowheadType, fletching, 10);
-                    arrowList.Add(arrow);
-                }
-            }
-        }*/
-
         Arrow[] arrows; 
         
         public Vendor(Arrow[] arrows)
@@ -61,40 +45,17 @@ namespace VinFletcherArrow
             return cost;
         }
 
-        public bool HasArrow(Arrow arrow)
+
+        public Arrow? GetArrow(ArrowheadType arrowheadType, Fletching fletching, int length)
         {
-            for (int i = 0; i < arrows.Length; i++)
+            for (int i = 0; i <= arrows.Length; i++)
             {
-                if (arrows[i] == arrow)
+                if (arrows[i].arrowHead == arrowheadType && arrows[i].fletching == fletching && arrows[i].length == length)
                 {
-                    return true;
+                    return arrows[i];
                 }
             }
-            return false;
+            return null;
         }
-
-        public bool TryGetArrow(Arrow arrow)
-        {
-            if (HasArrow(arrow))
-            {
-                for (int i = 0; i <= arrows.Length; i++)
-                {
-                    if (arrows[i] == arrow)
-                    {
-                        Console.WriteLine($"Here is your arrow: {arrows[i]}. It will cost you {GetCost(arrows[i])}");
-                    }
-                }
-            }
-
-            return false;
-        }
-
-
-        /*public Arrow GetArrow(ArrowheadType arrowheadType, Fletching fletching)
-        {
-            List<Arrow> arrowsWithHeads = arrowList.FindAll(head => head.arrowHead == arrowheadType);
-            Arrow perfectArrow = arrowsWithHeads.Find(fl => fl.fletching == fletching);
-            return perfectArrow;
-        }*/
     }
 }

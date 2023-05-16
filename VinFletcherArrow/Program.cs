@@ -8,12 +8,12 @@ int length;
 int.TryParse(Console.ReadLine(), out arrowhead);
 arrowhead--;
 Console.WriteLine("Chose your fletching type - press 1 for plastic, 2 for turkey feathers, 3 for goose feathers");
-int.TryParse(Console.ReadLine(),out fletching);
+int.TryParse(Console.ReadLine(), out fletching);
 fletching--;
 Console.WriteLine("Enter your shaft in cm");
-int.TryParse(Console.ReadLine(), out  length);
+int.TryParse(Console.ReadLine(), out length);
 
-Arrow arrow = new Arrow(arrowhead, fletching, length);
+Arrow desiredArrow = new Arrow(arrowhead, fletching, length);
 
 Arrow[] vendor1_arrows = new Arrow[] { new Arrow (ArrowheadType.Obsidian,  Fletching.Plastic, length = 5),
                                        new Arrow (ArrowheadType.Obsidian, Fletching.Turkey, length = 10),
@@ -27,9 +27,22 @@ Arrow[] vendor2_arrows = new Arrow[] { new Arrow(ArrowheadType.Steel, Fletching.
 Vendor vendor2 = new Vendor(vendor2_arrows);
 
 Console.WriteLine("Asking vendor1 if he has an arrow you wish");
-Console.WriteLine($"{vendor1.TryGetArrow(arrow)}");
+AskVendor(vendor1, desiredArrow);
 
 Console.WriteLine("Asking vendor2 if he has an arrow you wish");
-Console.WriteLine($"{vendor2.TryGetArrow(arrow)}");
+AskVendor(vendor2, desiredArrow);
 
 Console.ReadLine();
+
+static void AskVendor(Vendor vendor, Arrow arrow)
+{
+    if (vendor.GetArrow(arrow.arrowHead, arrow.fletching, arrow.length) != null)
+    {
+        Console.WriteLine($"Here is your arrow: {vendor.GetArrow(arrow.arrowHead, arrow.fletching, arrow.length)}");
+        Console.WriteLine($"It will cost you {vendor.GetCost(arrow)}");
+    }
+    else
+    {
+        Console.WriteLine("I don't have such an arrow");
+    }
+}
