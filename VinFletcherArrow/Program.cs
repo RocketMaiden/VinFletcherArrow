@@ -15,15 +15,17 @@ int.TryParse(Console.ReadLine(), out length);
 
 Arrow desiredArrow = new Arrow(arrowhead, fletching, length);
 
-Arrow[] vendor1_arrows = new Arrow[] { new Arrow (ArrowheadType.Obsidian,  Fletching.Plastic, length = 5),
-                                       new Arrow (ArrowheadType.Obsidian, Fletching.Turkey, length = 10),
-                                       new Arrow(ArrowheadType.Obsidian, Fletching.Goose, length = 10)};
+Arrow[] vendor1_arrows = new Arrow[] { 
+    new Arrow (ArrowheadType.Obsidian,  Fletching.Plastic, 5),
+    new Arrow (ArrowheadType.Obsidian, Fletching.Turkey, 10),
+    new Arrow(ArrowheadType.Obsidian, Fletching.Goose, 10)
+ };
 Vendor vendor1 = new Vendor(vendor1_arrows);
 
-Arrow[] vendor2_arrows = new Arrow[] { new Arrow(ArrowheadType.Steel, Fletching.Turkey, length = 5),
-                                       new Arrow(ArrowheadType.Wood, Fletching.Goose, length = 5),
-                                       new Arrow(ArrowheadType.Wood, Fletching.Goose, length = 10),
-                                       new Arrow(ArrowheadType.Wood, Fletching.Plastic, length = 15)};
+Arrow[] vendor2_arrows = new Arrow[] { new Arrow(ArrowheadType.Steel, Fletching.Turkey, 5),
+                                       new Arrow(ArrowheadType.Wood, Fletching.Goose, 5),
+                                       new Arrow(ArrowheadType.Wood, Fletching.Goose, 10),
+                                       new Arrow(ArrowheadType.Wood, Fletching.Plastic, 15)};
 Vendor vendor2 = new Vendor(vendor2_arrows);
 
 Console.WriteLine("Asking vendor1 if he has an arrow you wish");
@@ -36,9 +38,12 @@ Console.ReadLine();
 
 static void AskVendor(Vendor vendor, Arrow arrow)
 {
-    if (vendor.GetArrow(arrow.arrowHead, arrow.fletching, arrow.length) != null)
+    Arrow? vendorArrow = vendor.GetArrow(arrow.arrowHead, arrow.fletching, arrow.length);
+
+
+    if (vendorArrow != null)
     {
-        Console.WriteLine($"Here is your arrow: {vendor.GetArrow(arrow.arrowHead, arrow.fletching, arrow.length)}");
+        Console.WriteLine($"Here is your arrow: {vendorArrow}");
         Console.WriteLine($"It will cost you {vendor.GetCost(arrow)}");
     }
     else

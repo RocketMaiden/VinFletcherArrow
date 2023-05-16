@@ -1,6 +1,6 @@
 ﻿namespace VinFletcherArrow
 {
-    class Vendor
+    public class Vendor
     {
         Arrow[] arrows; 
         
