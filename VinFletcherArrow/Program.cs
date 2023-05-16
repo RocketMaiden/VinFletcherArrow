@@ -40,7 +40,6 @@ static void AskVendor(Vendor vendor, Arrow arrow)
 {
     Arrow? vendorArrow = vendor.GetArrow(arrow.arrowHead, arrow.fletching, arrow.length);
 
-
     if (vendorArrow != null)
     {
         Console.WriteLine($"Here is your arrow: {vendorArrow}");
