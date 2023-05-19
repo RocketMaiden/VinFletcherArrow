@@ -45,13 +45,11 @@
             return cost;
         }
 
-
         public Arrow? GetArrow(ArrowheadType arrowheadType, Fletching fletching, int length)
         {
             for (int i = 0; i < arrows.Length; i++)
             {
-                //TODO move to Equals method
-                if (arrows[i].arrowHead == arrowheadType && arrows[i].fletching == fletching && arrows[i].length == length)
+                if (Equals(arrows[i]))
                 {
                     return arrows[i];
                 }
@@ -59,7 +57,16 @@
             return null;
         }
 
-
-        //TODO write tests for Equals
+        public static bool Equals(Arrow desiredArrow, ArrowheadType arrowheadType, Fletching fletching, int length)
+        {
+            if (desiredArrow.arrowHead == arrowheadType && desiredArrow.fletching == fletching && desiredArrow.length == length)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }
