@@ -5,6 +5,7 @@ Console.WriteLine("Chose your arrowhead type - press 1 for steel, 2 for wood, 3 
 int arrowhead;
 int fletching;
 int length;
+
 int.TryParse(Console.ReadLine(), out arrowhead);
 arrowhead--;
 Console.WriteLine("Chose your fletching type - press 1 for plastic, 2 for turkey feathers, 3 for goose feathers");
@@ -13,7 +14,19 @@ fletching--;
 Console.WriteLine("Enter your shaft in cm");
 int.TryParse(Console.ReadLine(), out length);
 
-//TODO validation of user input
+if (arrowhead < 0 ||
+    arrowhead > 2 ||
+    fletching < 0 ||
+    fletching > 2 ||
+    length != 5 ||
+    length != 10 ||
+    length != 15)
+{
+    Console.WriteLine("Your input data is incorrect, try again");
+    return;
+
+}
+
 
 Arrow desiredArrow = new Arrow(arrowhead, fletching, length);
 
