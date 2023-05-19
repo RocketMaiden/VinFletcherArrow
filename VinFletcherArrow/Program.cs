@@ -14,17 +14,16 @@ fletching--;
 Console.WriteLine("Enter your shaft in cm");
 int.TryParse(Console.ReadLine(), out length);
 
-if (arrowhead < 0 ||
-    arrowhead > 2 ||
-    fletching < 0 ||
-    fletching > 2 ||
-    length != 5 ||
-    length != 10 ||
-    length != 15)
+if (!(arrowhead > 0 ||
+    arrowhead < 2 ||
+    fletching > 0 ||
+    fletching < 2 ||
+    length == 5 ||
+    length == 10 ||
+    length == 15))
 {
     Console.WriteLine("Your input data is incorrect, try again");
     return;
-
 }
 
 Arrow desiredArrow = new Arrow(arrowhead, fletching, length);
