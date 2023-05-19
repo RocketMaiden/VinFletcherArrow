@@ -2,7 +2,7 @@
 {
     public class Vendor
     {
-        Arrow[] arrows; 
+        public Arrow[] arrows; 
         
         public Vendor(Arrow[] arrows)
         {

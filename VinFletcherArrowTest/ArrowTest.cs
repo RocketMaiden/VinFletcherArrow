@@ -1,7 +1,7 @@
 using VinFletcherArrow;
 
 namespace VinFletcherArrowTest
-{   
+{
 
     public class ArrowTest
     {
