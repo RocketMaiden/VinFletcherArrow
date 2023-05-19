@@ -59,14 +59,7 @@
 
         public static bool Equals(Arrow desiredArrow, ArrowheadType arrowheadType, Fletching fletching, int length)
         {
-            if (desiredArrow.arrowHead == arrowheadType && desiredArrow.fletching == fletching && desiredArrow.length == length)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return (desiredArrow.arrowHead == arrowheadType && desiredArrow.fletching == fletching && desiredArrow.length == length);            
         }
     }
 }
