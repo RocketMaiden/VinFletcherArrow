@@ -21,6 +21,8 @@ namespace VinFletcherArrowTest
 
             //but why it works with == null not with != null
             Assert.True(vendor1.GetArrow(ArrowheadType.Obsidian, Fletching.Plastic, 5) == null);
+            Assert.True(vendor1.GetArrow(ArrowheadType.Obsidian, Fletching.Turkey, 10) == null);
+            Assert.True(vendor1.GetArrow(ArrowheadType.Obsidian, Fletching.Goose, 10) == null);
 
             Assert.True(vendor1.GetCost(new Arrow(ArrowheadType.Obsidian, Fletching.Plastic, 5)) == 17.5f);
         }
