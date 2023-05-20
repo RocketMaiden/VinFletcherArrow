@@ -9,12 +9,17 @@
             this.arrows = arrows;
         }
 
-        public float GetCost(Arrow arrow)
+        public float GetCost(Arrow? arrow)
         {
             float cost = 0;
             float arrowCost;
             float fletching;
             float shaftPrice;
+
+            if(arrow == null)
+            {
+                return 0;
+            }
             arrowCost = arrow.arrowHead switch
             {
                 (ArrowheadType.Steel) => 10.0f,
