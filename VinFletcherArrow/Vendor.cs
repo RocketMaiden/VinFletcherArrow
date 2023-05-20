@@ -49,7 +49,7 @@
         {
             for (int i = 0; i < arrows.Length; i++)
             {
-                if (Equals(arrows[i]))
+                if (Match(arrows[i], arrowheadType, fletching, length))
                 {
                     return arrows[i];
                 }
@@ -57,9 +57,9 @@
             return null;
         }
 
-        public static bool Equals(Arrow desiredArrow, ArrowheadType arrowheadType, Fletching fletching, int length)
+        public static bool Match(Arrow desiredArrow, ArrowheadType arrowheadType, Fletching fletching, int length)
         {
-            return (desiredArrow.arrowHead == arrowheadType && desiredArrow.fletching == fletching && desiredArrow.length == length);            
+            return (desiredArrow.arrowHead == arrowheadType && desiredArrow.fletching == fletching && desiredArrow.length == length);
         }
     }
 }
