@@ -26,6 +26,8 @@ if (!(arrowhead > 0 ||
     return;
 }
 
+Player player = new Player(35.0f);
+
 Arrow desiredArrow = new Arrow(arrowhead, fletching, length);
 
 Arrow[] vendor1_arrows = new Arrow[] { 
@@ -46,6 +48,7 @@ AskVendor(vendor1, desiredArrow);
 
 Console.WriteLine("Asking vendor2 if he has an arrow you wish");
 AskVendor(vendor2, desiredArrow);
+
 
 Console.ReadLine();
 

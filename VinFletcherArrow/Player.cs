@@ -24,6 +24,5 @@
                 gold -= arrowCost;
             }
         }
-
     }
 }
