@@ -44,22 +44,23 @@ Arrow[] vendor2_arrows = new Arrow[] { new Arrow(ArrowheadType.Steel, Fletching.
 Vendor vendor2 = new Vendor(vendor2_arrows);
 
 Console.WriteLine("Asking vendor1 if he has an arrow you wish");
-AskVendor(vendor1, desiredArrow);
+AskVendor(vendor1, desiredArrow, player);
 
 Console.WriteLine("Asking vendor2 if he has an arrow you wish");
-AskVendor(vendor2, desiredArrow);
+AskVendor(vendor2, desiredArrow, player);
 
 
 Console.ReadLine();
 
-static void AskVendor(Vendor vendor, Arrow arrow)
+static void AskVendor(Vendor vendor, Arrow arrow, Player player)
 {
     Arrow? vendorArrow = vendor.GetArrow(arrow.arrowHead, arrow.fletching, arrow.length);
 
     if (vendorArrow != null)
     {
-        Console.WriteLine($"Here is your arrow: {vendorArrow}");
+        Console.WriteLine($"Here is the arrow you want: {vendorArrow}");
         Console.WriteLine($"It will cost you {vendor.GetCost(arrow)}");
+        player.BuyArrow(vendor, arrow.arrowHead, arrow.fletching, arrow.length);
     }
     else
     {
