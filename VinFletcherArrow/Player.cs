@@ -21,9 +21,12 @@
 
             if ((totalSum < gold) && (desiredArrow != null))
             {
-                arrows[countOfArrows] = desiredArrow;
-                countOfArrows++;
-                gold -= arrowCost;
+                for (int i = 0; i < howMuch; i++)
+                {
+                    arrows[countOfArrows] = desiredArrow;
+                    countOfArrows++;
+                }
+                gold -= totalSum;
             }
         }
     }
