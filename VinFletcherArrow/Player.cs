@@ -13,12 +13,13 @@
             countOfArrows = 0;
         }
 
-        public void BuyArrow(Vendor vendor, ArrowheadType arrowheadType, Fletching fletching, float length)
+        public void BuyArrow(Vendor vendor, ArrowheadType arrowheadType, Fletching fletching, float length, int howMuch)
         {
             Arrow? desiredArrow = vendor.GetArrow(arrowheadType, fletching, length);
             float arrowCost = vendor.GetCost(desiredArrow);
+            float totalSum = arrowCost * howMuch;
 
-            if ((arrowCost < gold) && (desiredArrow != null))
+            if ((totalSum < gold) && (desiredArrow != null))
             {
                 arrows[countOfArrows] = desiredArrow;
                 countOfArrows++;

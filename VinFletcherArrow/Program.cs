@@ -5,6 +5,7 @@ Console.WriteLine("Chose your arrowhead type - press 1 for steel, 2 for wood, 3 
 int arrowhead;
 int fletching;
 float length;
+int howMuchArrowsToBuy;
 
 int.TryParse(Console.ReadLine(), out arrowhead);
 arrowhead--;
@@ -13,6 +14,8 @@ int.TryParse(Console.ReadLine(), out fletching);
 fletching--;
 Console.WriteLine("Enter your shaft in cm, it can be between 60 and 100 cm");
 float.TryParse(Console.ReadLine(), out length);
+Console.WriteLine("Enter how much arrows do you want to buy");
+int.TryParse(Console.ReadLine(), out  howMuchArrowsToBuy);
 
 if ((arrowhead < 0 ||
     arrowhead > 2 ||
@@ -43,15 +46,15 @@ Arrow[] vendor2_arrows = new Arrow[] { new Arrow(ArrowheadType.Steel, Fletching.
 Vendor vendor2 = new Vendor(vendor2_arrows);
 
 Console.WriteLine("Asking vendor1 if he has an arrow you wish");
-AskVendor(vendor1, desiredArrow, player);
+AskVendor(vendor1, desiredArrow, player, howMuchArrowsToBuy);
 
 Console.WriteLine("Asking vendor2 if he has an arrow you wish");
-AskVendor(vendor2, desiredArrow, player);
+AskVendor(vendor2, desiredArrow, player, howMuchArrowsToBuy);
 
 
 Console.ReadLine();
 
-static void AskVendor(Vendor vendor, Arrow arrow, Player player)
+static void AskVendor(Vendor vendor, Arrow arrow, Player player, int howMuchArrowsToBuy)
 {
     Arrow? vendorArrow = vendor.GetArrow(arrow.arrowHead, arrow.fletching, arrow.length);
 
@@ -59,7 +62,7 @@ static void AskVendor(Vendor vendor, Arrow arrow, Player player)
     {
         Console.WriteLine($"Here is the arrow you want: {vendorArrow}");
         Console.WriteLine($"It will cost you {vendor.GetCost(arrow)}");
-        player.BuyArrow(vendor, arrow.arrowHead, arrow.fletching, arrow.length);
+        player.BuyArrow(vendor, arrow.arrowHead, arrow.fletching, arrow.length, howMuchArrowsToBuy);
     }
     else
     {
