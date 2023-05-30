@@ -38,19 +38,14 @@
 
             cost += fletching;
 
-            shaftPrice = arrow.length switch
-            {
-                5 => 2.5f,
-                10 => 5.0f,
-                15 => 7.5f,
-            };
+            shaftPrice = arrow.length * 0.05f;
 
             cost += shaftPrice;
 
             return cost;
         }
 
-        public Arrow? GetArrow(ArrowheadType arrowheadType, Fletching fletching, int length)
+        public Arrow? GetArrow(ArrowheadType arrowheadType, Fletching fletching, float length)
         {
             for (int i = 0; i < arrows.Length; i++)
             {
@@ -62,7 +57,7 @@
             return null;
         }
 
-        public static bool Match(Arrow desiredArrow, ArrowheadType arrowheadType, Fletching fletching, int length)
+        public static bool Match(Arrow desiredArrow, ArrowheadType arrowheadType, Fletching fletching, float length)
         {
             return (desiredArrow.arrowHead == arrowheadType && desiredArrow.fletching == fletching && desiredArrow.length == length);
         }
