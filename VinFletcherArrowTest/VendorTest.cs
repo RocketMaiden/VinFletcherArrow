@@ -12,7 +12,7 @@ namespace VinFletcherArrowTest
             Arrow[] vendor1_arrows = new Arrow[] {
                 new Arrow (ArrowheadType.Obsidian, Fletching.Plastic, 60),
                 new Arrow (ArrowheadType.Obsidian, Fletching.Turkey, 70),
-                new Arrow(ArrowheadType.Obsidian, Fletching.Goose, 80)
+                new Arrow (ArrowheadType.Obsidian, Fletching.Goose, 80)
             };
             Vendor vendor1 = new Vendor(vendor1_arrows);
 

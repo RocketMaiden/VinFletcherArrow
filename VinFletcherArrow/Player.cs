@@ -30,5 +30,15 @@
                 gold -= totalSum;
             }
         }
+
+        public Arrow[] ShowArrows()
+        {
+            return arrows;
+        }
+
+        public int ShowCountOfArrows()
+        {
+            return countOfArrows;
+        }
     }
 }
