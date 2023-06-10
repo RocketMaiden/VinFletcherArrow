@@ -45,7 +45,7 @@
             return cost;
         }
 
-        public Arrow? GetArrow(ArrowheadType arrowheadType, Fletching fletching, float length)
+        public Arrow? GetArrow(ArrowheadType arrowheadType, Fletching fletching, int length)
         {
             for (int i = 0; i < arrows.Length; i++)
             {
@@ -57,7 +57,7 @@
             return null;
         }
 
-        public static bool Match(Arrow desiredArrow, ArrowheadType arrowheadType, Fletching fletching, float length)
+        public static bool Match(Arrow desiredArrow, ArrowheadType arrowheadType, Fletching fletching, int length)
         {
             return (desiredArrow.arrowHead == arrowheadType && desiredArrow.fletching == fletching && desiredArrow.length == length);
         }

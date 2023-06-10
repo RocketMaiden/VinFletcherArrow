@@ -14,7 +14,7 @@
             countOfArrows = 0;
         }
 
-        public void BuyArrow(Vendor vendor, ArrowheadType arrowheadType, Fletching fletching, float length, int howMuch)
+        public void BuyArrow(Vendor vendor, ArrowheadType arrowheadType, Fletching fletching, int length, int howMuch)
         {
             Arrow? desiredArrow = vendor.GetArrow(arrowheadType, fletching, length);
             float arrowCost = vendor.GetCost(desiredArrow);
